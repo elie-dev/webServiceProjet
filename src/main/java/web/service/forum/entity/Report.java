@@ -12,6 +12,11 @@ public class Report {
     private Integer id;
 
 
+    @ManyToOne
+    private Post post;
+
+    @ManyToOne
+    private User user;
 
     public enum ReportReason{
         SPAM, RACISM, NUDITY, OTHER

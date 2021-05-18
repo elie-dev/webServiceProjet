@@ -1,8 +1,11 @@
 package web.service.forum.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "Post")
@@ -25,9 +28,9 @@ public class Post {
     @ManyToOne
     private User user;
 
-    @ManyToOne
-    private Report report;
-
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, mappedBy = "post")
+    @JsonIgnore
+    private List<Report> reports;
 
 
 

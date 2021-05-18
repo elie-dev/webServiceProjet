@@ -1,15 +1,12 @@
 package web.service.forum.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import web.service.forum.entity.Categorie;
 import web.service.forum.entity.User;
+
+import java.util.List;
 
 @Entity
 @Table(name = "topic")
@@ -28,6 +25,10 @@ public class Topic {
 
     @ManyToOne
     private User user;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, mappedBy = "topic")
+    @JsonIgnore
+    private List<Post> posts;
 
     /**
      * @param id the id to set

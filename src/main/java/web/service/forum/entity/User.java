@@ -20,7 +20,7 @@ public class User {
 
     private Boolean locked = false;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, mappedBy = "categorie")
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, mappedBy = "user")
     @JsonIgnore
     private List<Topic> topics;
 
@@ -29,6 +29,14 @@ public class User {
 
     @ManyToOne
     private Report report;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, mappedBy = "user")
+    @JsonIgnore
+    private List<Post> posts;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, mappedBy = "user")
+    @JsonIgnore
+    private List<Report> reports;
 
 
     public enum Role{
