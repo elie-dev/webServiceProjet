@@ -15,12 +15,9 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
-
     private String content;
     private Date createdAt;
     private Date updatedAt;
-
 
     @ManyToOne
     private Topic topic;
@@ -31,8 +28,6 @@ public class Post {
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, mappedBy = "post")
     @JsonIgnore
     private List<Report> reports;
-
-
 
     public Post(){
     }

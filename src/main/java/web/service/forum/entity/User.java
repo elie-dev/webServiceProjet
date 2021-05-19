@@ -24,12 +24,6 @@ public class User {
     @JsonIgnore
     private List<Topic> topics;
 
-    @ManyToOne
-    private Topic topic;
-
-    @ManyToOne
-    private Report report;
-
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.REMOVE, mappedBy = "user")
     @JsonIgnore
     private List<Post> posts;
