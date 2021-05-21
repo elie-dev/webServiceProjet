@@ -54,7 +54,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     http.cors().and().csrf().disable().exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
         .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and().authorizeRequests()
         .antMatchers("/home/**").permitAll().antMatchers("/auth/**").permitAll().antMatchers("/artist/**").permitAll()
-        .antMatchers("/album/**").permitAll().antMatchers("/track/**").permitAll().anyRequest().authenticated();
+        .antMatchers("/greeting/**").permitAll().antMatchers("/track/**").permitAll().anyRequest().authenticated();
     http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
   }
 }
