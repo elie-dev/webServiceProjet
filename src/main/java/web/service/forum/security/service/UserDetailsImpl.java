@@ -1,6 +1,6 @@
 package web.service.forum.security.service;
 
-import academy.campus.rest.entity.User;
+import web.service.forum.entity.User;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

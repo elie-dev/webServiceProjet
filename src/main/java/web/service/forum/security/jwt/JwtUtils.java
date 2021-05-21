@@ -1,6 +1,6 @@
 package web.service.forum.security.jwt;
 
-import academy.campus.rest.security.service.UserDetailsImpl;
+import web.service.forum.security.service.UserDetailsImpl;
 import io.jsonwebtoken.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

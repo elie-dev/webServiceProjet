@@ -1,8 +1,8 @@
 package web.service.forum.security;
 
-import academy.campus.rest.security.jwt.AuthEntryPointJwt;
-import academy.campus.rest.security.jwt.AuthTokenFilter;
-import academy.campus.rest.security.service.UserDetailsServiceImpl;
+import web.service.forum.security.jwt.AuthEntryPointJwt;
+import web.service.forum.security.jwt.AuthTokenFilter;
+import web.service.forum.security.service.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -26,6 +26,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
   @Autowired
   private AuthEntryPointJwt unauthorizedHandler;
+
 
   @Bean
   public AuthTokenFilter authenticationJwtTokenFilter() {

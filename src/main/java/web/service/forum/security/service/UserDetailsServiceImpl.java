@@ -1,8 +1,8 @@
 package web.service.forum.security.service;
 
-import academy.campus.rest.entity.EnumRole;
-import academy.campus.rest.entity.User;
-import academy.campus.rest.repository.UserRepository;
+import web.service.forum.entity.EnumRole;
+import web.service.forum.entity.User;
+import web.service.forum.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
