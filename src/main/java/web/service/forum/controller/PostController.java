@@ -37,6 +37,21 @@ public class PostController {
         return postRepository.findAll(pageable);
     }
 
+    @DeleteMapping("/post/{id}")
+    public void deletePost(final @PathVariable("id") Integer postId) {
+        postRepository.deleteById(postId);
+    }
+
+    @PostMapping("/post")
+    public Post addPost(@RequestBody Post post) {
+        Post postToSave = new Post();
+        postToSave.setContent(post.getContent());
+        postToSave.setCreatedAt(post.getCreatedAt());
+        postToSave.setUpdatedAt(post.getUpdatedAt());
+        postToSave = postRepository.save(postToSave);
+        return postToSave;
+    }
+
     @ResponseBody
     @GetMapping("/post/{id}")
     public Post getPostById(final @PathVariable("id") String categorieId) {
