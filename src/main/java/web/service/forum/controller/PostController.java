@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import web.service.forum.entity.Categorie;
-import web.service.forum.repository.CategorieRepository;
+import web.service.forum.entity.Post;
+import web.service.forum.repository.PostRepository;
 
 /**
  *
@@ -25,28 +25,33 @@ import web.service.forum.repository.CategorieRepository;
  * @version 1.0
  */
 @RestController
-public class CategorieController {
+public class PostController {
 
     @Autowired
-    private CategorieRepository categorieRepository;
+    private PostRepository postRepository;
 
 
     @ResponseBody
-    @GetMapping("/categorie")
-    public Page<Categorie> getCategorie(Pageable pageable) {
-        return categorieRepository.findAll(pageable);
+    @GetMapping("/post")
+    public Page<Post> getPost(Pageable pageable) {
+        return postRepository.findAll(pageable);
     }
 
     @ResponseBody
-    @GetMapping("/categorie/{id}")
-    public Categorie getCategorieById(final @PathVariable("id") String categorieId) {
+    @GetMapping("/post/{id}")
+    public Post getPostById(final @PathVariable("id") String categorieId) {
         try {
-            return categorieRepository.findById(Integer.valueOf(categorieId)).get();
+            return postRepository.findById(Integer.valueOf(categorieId)).get();
         } catch (Exception e) {
             return null;
         }
     }
 
+    @ResponseBody
+    @PutMapping("/post/{id}")
+    public Post editpost(final @RequestBody Post post) {
+        return postRepository.save(post);
+    }
 
 
 }
