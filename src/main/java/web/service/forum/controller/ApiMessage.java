@@ -1,11 +1,6 @@
 package web.service.forum.controller;
 
-/**
- *
- * @author Matthieu BACHELIER
- * @since 2021
- * @version 1.0
- */
+
 public class ApiMessage {
 
   public static final Integer REGISTER_OK = 1;

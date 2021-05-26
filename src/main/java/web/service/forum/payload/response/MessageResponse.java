@@ -1,11 +1,6 @@
 package web.service.forum.payload.response;
 
-/**
- *
- * @author Matthieu BACHELIER
- * @since 2021
- * @version 1.0
- */
+
 public class MessageResponse {
   private Integer apiCode;
 

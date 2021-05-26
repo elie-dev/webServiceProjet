@@ -1,0 +1,241 @@
+{
+	"info": {
+		"_postman_id": "b84e7523-f3e7-4b1d-b6b2-8dd73e9131d1",
+		"name": "MonPetitForum",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "RegisterUser",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"pierre.chauvin@campus.academy\",\n    \"password\": \"12345678\",\n    \"roles\": [\n        \"ROLE_ADMIN\"\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LoginAdmin",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0QGNhbXB1cy5hY2FkZW15IiwiaWF0IjoxNjIyMDE1Mzg3LCJleHAiOjE2MjIxMDE3ODd9.utkLl2dckfH-wtXmOjv8RIMX1GvP5u5GvQEVQrKwk0YkDlq6TAFjJ55fd23H3mlmffxGIJBu8XlF9QAtiUn_rA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"test@campus.academy\",\n    \"password\": \"12345678\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RegisterModerator",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"trululu@campus.academy\",\n    \"password\": \"12345678\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/auth/register/moderator",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"auth",
+						"register",
+						"moderator"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetCategorie",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0QGNhbXB1cy5hY2FkZW15IiwiaWF0IjoxNjIyMDIwNDgzLCJleHAiOjE2MjIxMDY4ODN9._VvGydIYq-3x8HbVtNXJ3Z0AuOEI8zGhFlWSy8yBZWBR7y3S7S3cVkOAYvXelQO_0yqh2dJFHIhF3cSpDEsPOQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/categorie",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"categorie"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "NewPost",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0QGNhbXB1cy5hY2FkZW15IiwiaWF0IjoxNjIyMDIwOTMxLCJleHAiOjE2MjIxMDczMzF9.8gRwMvL8I_cH8sQZLCFRAFgfhV-saxQgZCbTPz2J9-63r2TeDT1YGhoQQY5QngK32PpG7GA4_3xWOt8tHTPrVg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"content\": \"j'apprecie les fruits au sirop\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/post",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetPost",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0QGNhbXB1cy5hY2FkZW15IiwiaWF0IjoxNjIyMDQ5MzYyLCJleHAiOjE2MjIxMzU3NjJ9.qcjIMVIkVSD9CpftPHmChJ7p_eNZOKIehx8PnrjAn1ATlt-lxDxstV5p6xF2b0Rpr4gWbM5KsIqFUSBGNVJOMQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/post",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "NewTopic",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "GetTopic",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0QGNhbXB1cy5hY2FkZW15IiwiaWF0IjoxNjIyMDQ5MzYyLCJleHAiOjE2MjIxMzU3NjJ9.qcjIMVIkVSD9CpftPHmChJ7p_eNZOKIehx8PnrjAn1ATlt-lxDxstV5p6xF2b0Rpr4gWbM5KsIqFUSBGNVJOMQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/topic",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"topic"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

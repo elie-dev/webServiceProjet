@@ -2,12 +2,7 @@ package web.service.forum.payload.response;
 
 import java.util.List;
 
-/**
- *
- * @author Matthieu BACHELIER
- * @since 2021
- * @version 1.0
- */
+
 public class JwtResponse {
   private String token;
   private Integer id;

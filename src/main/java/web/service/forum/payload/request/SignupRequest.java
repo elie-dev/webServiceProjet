@@ -4,12 +4,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
-/**
- *
- * @author Matthieu BACHELIER
- * @since 2021
- * @version 1.0
- */
+
 public class SignupRequest {
   @NotBlank
   @Size(max = 50)

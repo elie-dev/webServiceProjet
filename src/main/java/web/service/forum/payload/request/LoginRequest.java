@@ -2,12 +2,7 @@ package web.service.forum.payload.request;
 
 import javax.validation.constraints.NotBlank;
 
-/**
- *
- * @author Matthieu BACHELIER
- * @since 2021
- * @version 1.0
- */
+
 public class LoginRequest {
   @NotBlank
   private String email;

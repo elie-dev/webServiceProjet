@@ -18,12 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import web.service.forum.entity.Categorie;
 import web.service.forum.repository.CategorieRepository;
 
-/**
- *
- * @author Matthieu BACHELIER
- * @since 2021
- * @version 1.0
- */
+
 @RestController
 public class CategorieController {
 
