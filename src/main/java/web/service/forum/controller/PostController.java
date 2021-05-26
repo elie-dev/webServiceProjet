@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import web.service.forum.entity.Post;
+import web.service.forum.entity.Topic;
 import web.service.forum.repository.PostRepository;
 import web.service.forum.security.service.UserDetailsServiceImpl;
 
@@ -61,6 +62,10 @@ public class PostController {
         postRepository.deleteById(postId);
     }
 
+
+
+
+
     @PostMapping("/post")
 
     public Post addPost(@RequestBody Post post) {
@@ -71,6 +76,8 @@ public class PostController {
         postToSave = postRepository.save(postToSave);
         return postToSave;
     }
+
+
 
 
     @ResponseBody
@@ -89,7 +96,7 @@ public class PostController {
 
    @PutMapping("/post")
    public ResponseEntity<Post> editPost(final @RequestBody Post post) {
-       if (UserDetailsServiceImpl.isAdmin())  {
+       if ((UserDetailsServiceImpl.isAdmin()) || (UserDetailsServiceImpl.isModerator())) {
            return ResponseEntity.ok(postRepository.save(post));
        } else {
            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();

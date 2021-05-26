@@ -45,7 +45,7 @@ public class Topic {
     }
 
     /**
-     * @return the name
+     * @return the title
      */
     public String getTitle() {
         return title;
@@ -54,7 +54,7 @@ public class Topic {
     /**
      * @param title the title to set
      */
-    public void setTitle(String name) {
-        this.title = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 }

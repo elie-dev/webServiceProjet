@@ -52,4 +52,16 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     return grantedAuthority != null;
   }
 
+  public static boolean isModerator() {
+    Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+    if (authentication.getAuthorities().stream().filter(r -> r.getAuthority().equals(EnumRole.ROLE_ANONYMOUS.toString())).count() == 1) {
+      return false;
+    }
+
+    UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
+    GrantedAuthority grantedAuthority = userDetails.getAuthorities().stream()
+            .filter(r -> r.getAuthority().equals(EnumRole.ROLE_MODERATOR.toString())).findFirst().orElse(null);
+    return grantedAuthority != null;
+  }
+
 }

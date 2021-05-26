@@ -36,12 +36,7 @@ import web.service.forum.security.jwt.JwtUtils;
 import web.service.forum.security.service.UserDetailsImpl;
 import web.service.forum.security.service.UserDetailsServiceImpl;
 
-/**
- *
- * @author Matthieu BACHELIER
- * @since 2021
- * @version 1.0
- */
+
 @RestController
 @RequestMapping("auth")
 public class AuthController {
@@ -97,12 +92,22 @@ public class AuthController {
     }
 
     @PostMapping("register/moderator")
-    public ResponseEntity<?> adminAddModerator(@Valid @RequestBody SignupRequest signUpRequest) {
+    public ResponseEntity<MessageResponse> admin(@Valid @RequestBody SignupRequest signUpRequest) {
         if (UserDetailsServiceImpl.isAdmin()) {
-            // TODO exercice 9
+            if (userRepository.existsByEmail(signUpRequest.getEmail())) {
+                return ResponseEntity.ok()
+                        .body(new MessageResponse(ApiMessage.ERROR_REGISTER_EMAIL_TAKEN, "L'adresse email est déjà prise"));
+            }
+            User user = new User();
+            user.setEmail(signUpRequest.getEmail());
+            user.setPassword(encoder.encode(signUpRequest.getPassword()));
+            Set<Role> roles = new HashSet<Role>();
+            roles.add(roleRepository.findByName(EnumRole.ROLE_MODERATOR).get());
+            user.setRoles(roles);
+            userRepository.save(user);
             return ResponseEntity.ok(new MessageResponse(ApiMessage.REGISTER_OK, "Modérateur inscrit avec succès !"));
         } else {
-            throw new HttpClientErrorException(HttpStatus.UNAUTHORIZED, "Sorry but no!");
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
         }
     }
 

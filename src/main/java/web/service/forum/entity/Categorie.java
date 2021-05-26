@@ -52,7 +52,7 @@ public class Categorie {
     }
 
     /**
-     * @param title the title to set
+     * @param name the nemae to set
      */
     public void setName(String name) {
         this.name = name;

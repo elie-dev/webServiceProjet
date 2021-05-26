@@ -27,11 +27,13 @@ public class Post {
 
     private String content;
 
+
     @CreatedDate
     private Date createdAt = new Date();
 
     @CreatedDate
     private Date updatedAt = new Date();
+
 
     @ManyToOne
     private Topic topic;
@@ -60,6 +62,8 @@ public class Post {
             return localDate;
         }
     }
+
+
 
     public Long getId() {
         return id;
