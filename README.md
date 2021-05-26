@@ -4,7 +4,7 @@ Mon petit forum
 Initialisation du projet:
 Pour démarrer le projet, créer une base de donnée nommée MonPetitForum,
 ensuite dans src/main/java/ressources/aplication.properties, vérifier la bonne configuration par rapport
-à vos données locales, nottement pour le username et le password. Vérifier également que la ligne populatedb soit égale à true ("populatedb=true")
+à vos données locales, notamment pour le username et le password. Vérifier également que la ligne populatedb soit égale à true ("populatedb=true")
 lors de la premiere initialisation du projet.Ensuite le repasser en false pour éviter d'ajouter l'utilisateur ADMIN à chaque lancement de l'api.
 
 Pour les requetes PostMan nécessitant une authorisation, récupérer la clé token en utilisant la requete "LoginAdmin", puis aller dans l'onglet autorisation et choisissez le type "bearer token" et  renseigner la clé récupérer.
